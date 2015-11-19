@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CardCount" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oft-JX-gMy">
+                                <rect key="frame" x="149" y="617" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="PLT-Sm-vmB"/>
+                                </constraints>
+                                <state key="normal" title="Shuffle"/>
+                                <connections>
+                                    <action selector="shuffleDeck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gkk-s5-dUJ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Count" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-45-O8e">
+                                <rect key="frame" x="139" y="411" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ny6-5j-wE7"/>
+                                    <constraint firstAttribute="width" constant="97" id="WQ0-LX-JgD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWJ-0v-nE7">
+                                <rect key="frame" x="145" y="494" width="85" height="30"/>
+                                <state key="normal" title="check count"/>
+                                <connections>
+                                    <action selector="checkCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YcM-60-CMj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHI-vd-zlF">
+                                <rect key="frame" x="115" y="190" width="144" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="Ptk-5H-Am8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lHI-vd-zlF" firstAttribute="centerX" secondItem="oft-JX-gMy" secondAttribute="centerX" id="8ZE-Pe-oNf"/>
+                            <constraint firstItem="oft-JX-gMy" firstAttribute="top" secondItem="zWJ-0v-nE7" secondAttribute="bottom" constant="93" id="A3Z-3K-9nk"/>
+                            <constraint firstItem="lHI-vd-zlF" firstAttribute="centerX" secondItem="AQX-45-O8e" secondAttribute="centerX" id="PDz-pi-iFN"/>
+                            <constraint firstItem="lHI-vd-zlF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="99" id="UdC-XX-caw"/>
+                            <constraint firstItem="AQX-45-O8e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2c-yo-9Pb"/>
+                            <constraint firstItem="AQX-45-O8e" firstAttribute="top" secondItem="lHI-vd-zlF" secondAttribute="bottom" constant="123" id="nVV-b0-F1h"/>
+                            <constraint firstAttribute="bottom" secondItem="oft-JX-gMy" secondAttribute="bottom" constant="20" symbolic="YES" id="wym-aH-tW6"/>
+                            <constraint firstItem="lHI-vd-zlF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="170" id="xVx-N4-lhs"/>
+                            <constraint firstItem="lHI-vd-zlF" firstAttribute="centerX" secondItem="zWJ-0v-nE7" secondAttribute="centerX" id="zBN-li-1ee"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cardLabel" destination="lHI-vd-zlF" id="i6T-3w-ztG"/>
+                        <outlet property="inputCount" destination="AQX-45-O8e" id="ARx-cT-ltH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="429.5"/>
+        </scene>
+    </scenes>
+</document>
