@@ -72,7 +72,10 @@ extension MutableCollectionType where Index == Int {
         if count < 2 { return }
         
         for i in 0..<count - 1 {
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+//            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            let now = NSDate().timeIntervalSince1970
+            let j = (Int( (Int(rand()) * Int(now))) + i) % 52
+            print(j)
             guard i != j else { continue }
             swap(&self[i], &self[j])
         }

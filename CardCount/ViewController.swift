@@ -17,21 +17,26 @@ class ViewController: UIViewController {
     
     var runningCount = 0
     
-    var deckOfCards:Set<String> = []
+    var deckOfCards:Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        inputCount.inputAccessoryView = AccessoryToolBar()
-        deckOfCards = Set(Dealer.sharedInstance.shuffle())
+        cardLabel.layer.cornerRadius = 5
+        cardLabel.layer.masksToBounds = true
         
-        cardLabel.text = deckOfCards.popFirst()
+        deckOfCards = Dealer.sharedInstance.shuffle()
+        
+        cardLabel.text = deckOfCards.removeFirst()
 
         runningCount += Dealer.sharedInstance.getHighLowValue(cardLabel.text!)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: "dealNextCard")
         swipeRight.direction = .Right
         self.view.addGestureRecognizer(swipeRight)
+        
+        cardLabel.slideInFromLeft()
+        inputCount.delegate = self
 
     }
 
@@ -41,14 +46,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func checkCount(sender: AnyObject) {
-        var message = ""
+        var message = "", title = ""
         if Int(inputCount.text!) == runningCount {
-            message = "Correct the count is \(runningCount)"
+            title = "Correct!"
+            message = "The count is \(runningCount)"
         } else {
-            message = "Incorrect the count is \(runningCount)"
+            title = "Incorrect"
+            message = "You entered \(inputCount.text!)the count is \(runningCount)"
         }
         
-        let alertController:UIAlertController = UIAlertController(title: "Count", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .Default,handler: nil))
         
@@ -56,15 +63,36 @@ class ViewController: UIViewController {
     }
 
     @IBAction func shuffleDeck(sender: AnyObject) {
-        deckOfCards = Set(Dealer.sharedInstance.shuffle())
-        cardLabel.text = deckOfCards.popFirst()
+        deckOfCards = Dealer.sharedInstance.shuffle()
         runningCount = 0
-        runningCount += Dealer.sharedInstance.getHighLowValue(cardLabel.text!)
+        cardLabel.slideOutToRight(0.1, completionDelegate: self)
     }
 
     func dealNextCard() {
-        cardLabel.text = deckOfCards.popFirst()
+        cardLabel.slideOutToRight(0.1, completionDelegate: self)
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool){
+        guard deckOfCards.count != 0 else {
+            cardLabel.text = "The End"
+            cardLabel.slideInFromLeft()
+            return
+        }
+        
+        cardLabel.text = deckOfCards.removeFirst()
         runningCount += Dealer.sharedInstance.getHighLowValue(cardLabel.text!)
+        cardLabel.slideInFromLeft()
+    }
+    
+    func doneEditing() {
+        inputCount.resignFirstResponder()
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
 

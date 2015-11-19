@@ -15,7 +15,7 @@
 		866BDAD01BFCEBE500616BB4 /* CardCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BDACF1BFCEBE500616BB4 /* CardCountTests.swift */; };
 		866BDADB1BFCEBE500616BB4 /* CardCountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BDADA1BFCEBE500616BB4 /* CardCountUITests.swift */; };
 		866BDAE91BFCECB700616BB4 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BDAE81BFCECB700616BB4 /* Dealer.swift */; };
-		866BDB251BFD188900616BB4 /* AccessoryToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BDB241BFD188900616BB4 /* AccessoryToolbar.swift */; };
+		CF1F4F5F1BFD9C2C008D8FCD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F4F5E1BFD9C2C008D8FCD /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		866BDADA1BFCEBE500616BB4 /* CardCountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCountUITests.swift; sourceTree = "<group>"; };
 		866BDADC1BFCEBE500616BB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866BDAE81BFCECB700616BB4 /* Dealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
-		866BDB241BFD188900616BB4 /* AccessoryToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryToolbar.swift; sourceTree = "<group>"; };
+		CF1F4F5E1BFD9C2C008D8FCD /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 				866BDAC31BFCEBE500616BB4 /* LaunchScreen.storyboard */,
 				866BDAC61BFCEBE500616BB4 /* Info.plist */,
 				866BDAE81BFCECB700616BB4 /* Dealer.swift */,
-				866BDB241BFD188900616BB4 /* AccessoryToolbar.swift */,
+				CF1F4F5E1BFD9C2C008D8FCD /* UIViewExtensions.swift */,
 			);
 			path = CardCount;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				866BDB251BFD188900616BB4 /* AccessoryToolbar.swift in Sources */,
+				CF1F4F5F1BFD9C2C008D8FCD /* UIViewExtensions.swift in Sources */,
 				866BDABD1BFCEBE500616BB4 /* ViewController.swift in Sources */,
 				866BDAE91BFCECB700616BB4 /* Dealer.swift in Sources */,
 				866BDABB1BFCEBE500616BB4 /* AppDelegate.swift in Sources */,
@@ -492,6 +492,7 @@
 				866BDAE11BFCEBE500616BB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		866BDAE21BFCEBE500616BB4 /* Build configuration list for PBXNativeTarget "CardCountTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +501,7 @@
 				866BDAE41BFCEBE500616BB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		866BDAE51BFCEBE500616BB4 /* Build configuration list for PBXNativeTarget "CardCountUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +510,7 @@
 				866BDAE71BFCEBE500616BB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
