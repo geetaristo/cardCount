@@ -52,7 +52,7 @@ class ViewController: UIViewController {
             message = "The count is \(runningCount)"
         } else {
             title = "Incorrect"
-            message = "You entered \(inputCount.text!)the count is \(runningCount)"
+            message = "You entered \(inputCount.text!) the count is \(runningCount)"
         }
         
         let alertController:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -65,11 +65,11 @@ class ViewController: UIViewController {
     @IBAction func shuffleDeck(sender: AnyObject) {
         deckOfCards = Dealer.sharedInstance.shuffle()
         runningCount = 0
-        cardLabel.slideOutToRight(0.1, completionDelegate: self)
+        cardLabel.spin(0.25, completionDelegate: self)
     }
 
     func dealNextCard() {
-        cardLabel.slideOutToRight(0.1, completionDelegate: self)
+        cardLabel.slideOutToRight(0.25, completionDelegate: self)
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool){
