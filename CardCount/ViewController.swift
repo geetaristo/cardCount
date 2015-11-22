@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     func dealNextCard() {
         cardLabel.slideOutToRight(0.1, completionDelegate: self)
     }
-    
+
     override func animationDidStop(anim: CAAnimation, finished flag: Bool){
         guard deckOfCards.count != 0 else {
             cardLabel.text = "The End"
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         runningCount += Dealer.sharedInstance.getHighLowValue(cardLabel.text!)
         cardLabel.slideInFromLeft()
     }
-    
+
     func doneEditing() {
         inputCount.resignFirstResponder()
     }
