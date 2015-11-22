@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     // Name this function in a way that makes sense to you...
     // slideFromLeft, slideRight, slideLeftToRight, etc. are great alternative names
-    func slideInFromLeft(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+    func slideInFromLeft(duration: NSTimeInterval = 0.25, completionDelegate: AnyObject? = nil) {
         // Create a CATransition animation
         let slideInFromLeftTransition = CATransition()
         
@@ -31,8 +31,7 @@ extension UIView {
         self.layer.addAnimation(slideInFromLeftTransition, forKey: "slideInFromLeftTransition")
     }
     
-
-    func slideOutToRight(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+    func slideOutToRight(duration: NSTimeInterval = 0.25, completionDelegate: AnyObject? = nil) {
         // Create a CATransition animation
         let slideOutToRightTransition = CATransition()
         
@@ -51,4 +50,18 @@ extension UIView {
         // Add the animation to the View's layer
         self.layer.addAnimation(slideOutToRightTransition, forKey: "slideOutToRightTransition")
     }
+    
+    func spin(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(M_PI * 2.0)
+        rotateAnimation.duration = duration
+        
+        if let delegate: AnyObject = completionDelegate {
+            rotateAnimation.delegate = delegate
+        }
+        self.layer.addAnimation(rotateAnimation, forKey: nil)
+    }
 }
+
+
