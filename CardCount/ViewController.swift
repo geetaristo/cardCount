@@ -74,7 +74,7 @@ class ViewController: UIViewController {
 
     override func animationDidStop(anim: CAAnimation, finished flag: Bool){
         guard deckOfCards.count != 0 else {
-            cardLabel.text = "The End"
+            cardLabel.text = "End"
             cardLabel.slideInFromLeft()
             return
         }
